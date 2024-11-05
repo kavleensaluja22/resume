@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kavleen Saluja Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap">
+    <style>
+        :root {
+            --primary-color: #E4CE0C;
+            --secondary-color: #6DAABD;
+            --text-color: #000;
+            --bg-color: #fff;
+            --card-bg: #F9F8F8;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            font-weight: 800;
+        }
+        .logo img {
+            width: 54px;
+            height: 46px;
+        }
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+        .nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .nav a:hover, .nav a:focus {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px 0;
+        }
+        .hero-content {
+            max-width: 50%;
+        }
+        .hero-image {
+            max-width: 50%;
+        }
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .hero-image img:hover {
+            transform: scale(1.05);
+        }
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--secondary-color);
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 18px 70px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 500;
+            margin-top: 38px;
+            border: 1px solid var(--text-color);
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+        .cta-button:hover, .cta-button:focus {
+            transform: translateY(-3px);
+            box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.3);
+            background-color: var(--secondary-color);
+            color: var(--bg-color);
+        }
+        .services {
+            background-color: var(--card-bg);
+            padding: 37px 0 182px;
+        }
+        .services h2 {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 37px;
+            color: var(--secondary-color);
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .service-card {
+            background-color: var(--bg-color);
+            border-radius: 22px;
+            padding: 30px;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border: 1px solid var(--text-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.3);
+        }
+        .service-card h3 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 39px;
+            color: var(--secondary-color);
+        }
+        .service-card p {
+            font-size: 16px;
+            font-weight: 300;
+            margin-bottom: 70px;
+        }
+        .service-card a {
+            font-size: 18px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .service-card a:hover, .service-card a:focus {
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+        .projects {
+            padding: 50px 0;
+        }
+        .projects h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 800;
+            background-color: var(--secondary-color);
+            color: var(--bg-color);
+            padding: 18px 70px;
+            border-radius: 22px;
+            display: inline-block;
+            margin-bottom: 31px;
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .project-card {
+            background-color: var(--bg-color);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.3);
+        }
+        .project-card img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+        .project-info {
+            padding: 30px;
+        }
+        .project-info h3 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        .project-info p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .project-info .tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .project-info .tag {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+        .project-info .tag:hover {
+            transform: translateY(-3px);
+        }
+        .project-info a {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--bg-color);
+            padding: 16px 70px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .project-info a:hover, .project-info a:focus {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            transform: translateY(-3px);
+        }
+        .other-projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 50px;
+        }
+        .other-project {
+            background-color: var(--secondary-color);
+            color: var(--bg-color);
+            padding: 70px;
+            font-size: 24px;
+            font-weight: 400;
+            text-align: center;
+            border-radius: 22px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .other-project:hover {
+            transform: scale(1.05);
+            background-color: var(--primary-color);
+            color: var(--text-color);
+        }
+        .contact {
+            padding: 50px 0;
+            background-color: var(--card-bg);
+        }
+        .contact h2 {
+            font-size: 40px;
+            font-weight: 400;
+            margin-bottom: 40px;
+            color: var(--secondary-color);
+        }
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid var(--text-color);
+            border-radius: 12px;
+            font-size: 16px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0px 0px 8px rgba(109, 170, 189, 0.5);
+        }
+        .form-group textarea {
+            height: 150px;
+        }
+        .submit-button {
+            grid-column: 1 / -1;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 16px 70px;
+            border: none;
+            border-radius: 25px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .submit-button:hover, .submit-button:focus {
+            background-color: var(--secondary-color);
+            color: var(--bg-color);
+            transform: translateY(-3px);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .footer {
+            background-color: var(--card-bg);
+            padding: 50px 0;
+            text-align: center;
+        }
+        .footer p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .social-icons a {
+            color: var(--text-color);
+            font-size: 24px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .social-icons a:hover, .social-icons a:focus {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+            }
+            .hero-content, .hero-image {
+                max-width: 100%;
+            }
+            .service-grid, .project-grid, .other-projects {
+                grid-template-columns: 1fr;
+            }
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+        }
+        .project-inquiry {
+            border-radius: 0;
+            display: flex;
+            padding-bottom: 8px;
+            flex-direction: column;
+        }
+        .inquiry-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .inquiry-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .project-title {
+            color: var(--secondary-color);
+            font: 700 48px 'Inter', sans-serif;
+            margin-bottom: 20px;
+        }
+        .form-container {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            color: var(--text-color);
+            font: 400 16px 'Inter', sans-serif;
+        }
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .form-input {
+            flex: 1;
+            border-radius: 12px;
+            background-color: var(--bg-color);
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            border: 1px solid var(--text-color);
+            font: 400 16px 'Inter', sans-serif;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+        }
+        .project-details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .project-description {
+            color: var(--text-color);
+            font: 400 16px 'Inter', sans-serif;
+            margin-bottom: 30px;
+            
+            max-width: 600px;
+        }
+        .project-textarea {
+            width: 100%;
+            border-radius: 12px;
+            background-color: var(--bg-color);
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            min-height: 150px;
+            border: 1px solid var(--text-color);
+            font: 400 16px 'Inter', sans-serif;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+            resize: vertical;
+        }
+        .project-textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+        }
+        .footer-section {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .contact-info {
+            margin-bottom: 20px;
+            color: var(--text-color);
+            font: 400 16px 'Inter', sans-serif;
+        }
+        .follow-text {
+            margin: 10px 0;
+        }
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .submit-button {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            border: none;
+            border-radius: 25px;
+            padding: 15px 40px;
+            font: 700 24px 'Inter', sans-serif;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .submit-button:hover, .submit-button:focus {
+            background-color: var(--secondary-color);
+            color: var(--bg-color);
+            transform: translateY(-3px);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .animated {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .fadeIn {
+            animation-name: fadeIn;
+        }
+        @keyframes slideInUp {
+            from {
+                transform: translate3d(0, 100%, 0);
+                visibility: visible;
+            }
+            to {
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        .slideInUp {
+            animation-name: slideInUp;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header animated fadeIn">
+            <div class="logo">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/6144093e8074fc0cb89c0974e2c4214d2b70cbaeeb6b6e95121dd95938547e4a?placeholderIfAbsent=true&apiKey=5e98af6b7b7440aea109467c73d1eed7" class="lazy-image" alt="" />
+                <span>work.kavleen@gmail.com</span>
+            </div>
+            <nav class="nav">
+                <a href="#work"><i class="fas fa-briefcase"></i> My Work</a>
+                <a href="#about"><i class="fas fa-user"></i> About</a>
+                <a href="#services"><i class="fas fa-cogs"></i> Services</a>
+                <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+            </nav>
+        </header>
+        <main>
+            <section class="hero animated slideInUp">
+                <div class="hero-content">
+                    <h1>Hi, I'm Kavleen Saluja</h1>
+                    <p><i class="fas fa-code"></i> I specialize in innovative development, Python, and web expertise.</p>
+                    <p><i class="fas fa-laptop-code"></i> As a backend developer, I create dynamic, responsive websites using Python, Django, and UX/UI design. My focus on efficient, scalable solutions drives me to deliver high-quality results.</p>
+                    <a href="#contact" class="cta-button"><i class="fas fa-rocket"></i> Start growing</a>
+                </div>
+                <div class="hero-image">
+                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/641dac6a89aac12f078c2537fd3e698f010bd12d917f674a99c8f68790e4fa74?placeholderIfAbsent=true&apiKey=5e98af6b7b7440aea109467c73d1eed7" class="responsive-image" alt="Description of the image content" />
+            </section>
+            <section id="services" class="services animated fadeIn">
+                <h2><i class="fas fa-tools"></i> What I can do for you</h2>
+                <div class="service-grid">
+                    <div class="service-card">
+                        <h3><i class="fas fa-laptop-code"></i> Build Website & WebApp</h3>
+                        <p>I specialize in crafting impactful designs for startups, collaborating closely with you to develop and deliver tailored websites and web apps. My focus is on creating engaging, user-friendly solutions that effectively connect with your audience and bring your vision to life.</p>
+                        <a href="#contact">Let's chat <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card">
+                        <h3><i class="fas fa-mobile-alt"></i> Web & Mobile UX/UI Design</h3>
+                        <p>I can design your mobile app, website or eCommerce store. I excel in designing impactful UX/UI for web and mobile platforms. For web & mobile apps, I work in Figma and handoff to your developer. I carefully craft each design to ensure it is visually compelling, highly functional, and delivers a seamless user experience.</p>
+                        <a href="#contact">Get a quote <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card">
+                        <h3><i class="fas fa-chalkboard-teacher"></i> 1:1 Coaching for Developers</h3>
+                        <p>I help junior designers and developers from all over the world kickstart their career. I can provide 1:1 design feedback, career coaching, interview prep, and portfolio & branding advice. Drop your query in Form or reach out via email work.kavleen@gmail.com.</p>
+                        <a href="mailto:work.kavleen@gmail.com">Email me <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3><i class="fab fa-snapchat-ghost"></i> Crafting Snapchat Lens</h3>
+                        <p>I create captivating and interactive Snapchat lenses that push the boundaries of digital engagement. By blending creativity with technical expertise, I develop lenses that not only captivate users but also amplify your brand's presence in a fun and memorable way.</p>
+                        <a href="#contact">Let's chat <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card">
+                        <h3><i class="fas fa-paint-brush"></i> Procreate Illustrations</h3>
+                        <p>I bring creativity to life through bespoke Procreate illustrations, meticulously crafted to capture the essence of your ideas. Whether you're seeking vibrant artwork for marketing materials, custom designs for products, or unique visuals to enhance your brand identity, I deliver high-quality illustrations tailored to your needs.</p>
+                        <a href="#contact">Email me <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card">
+                        <h3><i class="fas fa-laptop"></i> Landing Pages & Portfolio</h3>
+                        <p>I specialize in designing visually stunning portfolio and landing pages that capture attention and drive results. By combining sleek, user-friendly layouts with engaging content, I help you showcase your brand and connect with your audience effectively. Let's collaborate to bring your vision to life and build a strong digital presence that stands out from the crowd.</p>
+                        <a href="#contact">Let's chat <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </section>
+            <section id="work" class="projects animated fadeIn">
+                <div style="text-align: center;">
+                    <h2 style="display: inline-block;">
+                        <i class="fas fa-project-diagram"></i> Featured Projects
+                    </h2>
+                </div>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <img src="http://b.io/ext_11-" alt="Resume Builder Project" loading="lazy">
+                        <div class="project-info">
+                            <h3>Resume Builder</h3>
+                            <div class="tags">
+                                <span class="tag"><i class="fab fa-figma"></i> Figma</span>
+                                <span class="tag"><i class="fab fa-python"></i> Python</span>
+                                <span class="tag"><i class="fab fa-js"></i> JS</span>
+                            </div>
+                            <p>Developed a dynamic resume builder web application utilizing Python and Django to enable users to create and customize professional resumes effortlessly. Implemented robust backend functionalities for template management and user data processing, ensuring a seamless experience. Designed intuitive and visually appealing user interfaces using Figma, focusing on a clean, user-friendly layout that enhances usability and engagement.</p>
+                            <a href="#" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="http://b.io/ext_12-" alt="Saluja Swaraj Tractors Project" loading="lazy">
+                        <div class="project-info">
+                            <h3>Saluja Swaraj Tractors</h3>
+                            <div class="tags">
+                                <span class="tag"><i class="fab fa-python"></i> Python</span>
+                                <span class="tag"><i class="fab fa-django"></i> Django</span>
+                            </div>
+                            <p>Developed a dynamic tractor company website with OTP verification, feedback, and user information storage. Intuitive interface, tractor info, photos, location, and language options for enhanced usability.</p>
+                            <a href="#" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="http://b.io/ext_13-" alt="Virile Logistics Project" loading="lazy">
+                        <div class="project-info">
+                            <h3>Virile Logistics</h3>
+                            <div class="tags">
+                                <span class="tag"><i class="fab fa-python"></i> Python</span>
+                                <span class="tag"><i class="fab fa-django"></i> Django</span>
+                            </div>
+                            <p>Created a comprehensive web platform for a truck load brokerage business, facilitating seamless communication and booking processes for users and truck owners. Leveraged Python and Django for backend development and Figma for intuitive UI/UX design. The platform enables users to easily contact and book trucks for their loads, streamlining logistics operations and enhancing user experience.</p>
+                            <a href="#" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="http://b.io/ext_14-" alt="Chat App Project" loading="lazy">
+                        <div class="project-info">
+                            <h3>Chat App</h3>
+                            <div class="tags">
+                                <span class="tag"><i class="fab fa-python"></i> Python</span>
+                                <span class="tag"><i class="fab fa-js"></i> JS</span>
+                            </div>
+                            <p>Developed a real-time chat application leveraging Python and Django with WebSocket integration for instantaneous messaging. Designed the user interface and experience using Figma, ensuring an engaging and intuitive interaction for users. Features include real-time notifications, group chats, and private messaging, enhancing communication efficiency and user engagement within the app.</p>
+                            <a href="#" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="other-projects">
+                    <div class="other-project">
+                        <i class="fas fa-globe"></i>
+                        <p>Websites I have made</p>
+                    </div>
+                    <div class="other-project">
+                        <i class="fas fa-mobile-alt"></i>
+                        <p>WebApps I have made</p>
+                    </div>
+                    <div class="other-project">
+                        <i class="fas fa-users"></i>
+                        <p>Students I have taught</p>
+                    </div>
+                    <div class="other-project">
+                        <i class="fab fa-snapchat-ghost"></i>
+                        <p>Snapchat lenses I have made</p>
+                    </div>
+                    <div class="other-project">
+                        <i class="fas fa-paint-brush"></i>
+                        <p>Procreate illustrations I drew</p>
+                    </div>
+                    <div class="other-project">
+                        <i class="fas fa-laptop"></i>
+                        <p>Portfolio & landing pages I made</p>
+                    </div>
+                </div>
+            </section>
+            <section id="contact" class="project-inquiry animated fadeIn">
+                <div class="inquiry-container">
+                    <header class="inquiry-header">
+                        <h2 class="project-title"><i class="fas fa-envelope-open-text"></i> Tell me about your project</h2>
+                    </header>
+                    <form id="projectForm" class="form-container">
+                        <div class="form-row">
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required>
+                            <input type="tel" id="contact" name="contact" class="form-input" placeholder="Your contact number" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="text" id="projectType" name="projectType" class="form-input" placeholder="Project type" required>
+                            <input type="text" id="budget" name="budget" class="form-input" placeholder="Budget" required>
+                        </div>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="Your email" required>
+                        <br></br>
+                        <textarea id="projectDetails" name="projectDetails" class="project-textarea" placeholder="Project details, context, how can I help...." required></textarea>
+                        <br></br>
+                        <button type="submit" class="submit-button"><i class="fas fa-paper-plane"></i> Get in touch</button>
+                    </form>
+                </div>
+                <br></br>
+                <div class="project-details">
+                    <p class="project-description">
+                        Any project starts with a goal setting. If you have a vision, I can design it.<br><br>
+                        After the inquiry, I will reply within 2-3 working days, with an approximate quote for the project or with questions for more details. After that, we can have an intro call to discuss your project and see if it's a match.
+                    </p>
+                </div>
+                <footer class="footer-section">
+                    <div class="footer-content">
+                        <div class="contact-info">
+                            <p>Email me at<br>work.kavleen@gmail.com</p>
+                            <p class="follow-text">Follow</p>
+                            <div class="social-icons">
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            </div>
+                            <p class="copyright">kavleen saluja 2024</p>
+                        </div>
+                    </div>
+                </footer>
+            </section>
+        </main>
+    </div>
+    <script src="http://b.io/ext_15-"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animated');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fadeIn');
+                    }
+                });
+            });
+
+            animatedElements.forEach(el => observer.observe(el));
+
+            document.getElementById('projectForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                fetch('https://formspree.io/f/your-form-id', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        alert('Thank you for your inquiry. We\'ll get back to you soon!');
+                        this.reset();
+                    } else {
+                        alert('Oops! There was a problem submitting your form. Please try again.');
+                    }
+                }).catch(error => {
+                    console.error('Error:', error);
+                    alert('Oops! There was a problem submitting your form. Please try again.');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
